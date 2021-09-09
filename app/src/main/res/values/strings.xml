@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Ganti 4G</string>
+
+    <string name="network_test">Tes Jaringan</string>
+    <string name="download_file_test">Download File Test</string>
+    <string name="facebook_connection_test">Tes Koneksi Facebook</string>
+    <string name="connection_class">Kelas koneksi Anda adalah:</string>
+    <string name="connection_error">Tidak ada koneksi jaringan!</string>
+
+    <string name="time_taken">Waktu dibutuhkan </string>
+    <string name="kilobyte_per_sec">Kb per detik </string>
+    <string name="download_speed">Kecepatan Download  </string>
+    <string name="file_size">Ukuran file </string>
+    <string name="bandwidth">bandwidth </string>
+    <string name="poor_bandwidth">Jelek</string>
+    <string name="average_bandwidth">Sedang</string>
+    <string name="good_bandwidth">Bagus</string>
+
+    <string name="appID">ca-app-pub-2243481278007346~9205327988</string>
+    <string name="banner_ad_unit_id">ca-app-pub-2243481278007346/9560551207</string>
+    <string name="bagaimana_cara_untuk_mengunci_jaringan_anda_ke_mode_jaringan_4g_sebelum_anda_mengganti_jaringan_hp_anda_ke_mode_4g_perlu_di_ingat_bahwa_anda_tidak_bisa_menerima_panggilan_dari_contact_anda_dikarenakan_jaringna_anda_hanya_menggunakan_jaringan_4g_saja_tidak_termasuk_jaringan_prl">Bagaimana cara untuk mengunci jaringan anda ke mode jaringan 4g. Sebelum anda mengganti jaringan hp anda ke mode 4g perlu di ingat bahwa anda tidak bisa menerima panggilan dari contact anda dikarenakan jaringna anda hanya menggunakan jaringan 4g saja tidak termasuk jaringan PRL</string>
+
+</resources>

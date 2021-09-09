@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1053773926780",
+    "project_id": "g-switch-9c4f0",
+    "storage_bucket": "g-switch-9c4f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053773926780:android:b1a8aecadab7321b4314f9",
+        "android_client_info": {
+          "package_name": "awan.project.a4gswitch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053773926780-0k38gdr8715b7mi70u5o5endpg2afcu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAasn4BDr4tEpCGrG6-hfKdHD7BqP3J-Eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053773926780-0k38gdr8715b7mi70u5o5endpg2afcu8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5034912840512542~9706688842"
+    }
+  ],
+  "configuration_version": "1"
+}

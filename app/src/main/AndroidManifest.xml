@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="awan.project.a4gswitch">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".BaseApp"
+        android:allowBackup="true"
+        android:icon="@drawable/logo3"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo3"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.4GSwitch">
+
+        <activity android:name=".TutorialActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".koneksi.FacebookConnectActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".koneksi.NetworkInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".koneksi.DownloadInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Switcher"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="IntentFilterExportedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/appID"/>
+
+    </application>
+
+</manifest>
