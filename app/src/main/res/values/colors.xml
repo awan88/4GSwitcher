@@ -8,4 +8,29 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="error">#e74c3c</color>
+
+
+    <color name="newbg">#000000</color>
+    <color name="cone">#22C2CD</color>
+    <color name="subtext">#8599A7</color>
+    <color name="maintextcolor">#ffffff</color>
+    <color name="ratedialog">#036E75</color>
+    <color name="ratedialogbackgraun">#FFFFFF</color>
+    <color name="headerTextColour">#22C2CD</color>
+
+    <color name = "colorPrimary">#252A34</color>
+    <color name = "colorPrimaryDark">#252A34</color>
+    <color name = "colorAccent">#315671</color>
+    <color name = "darktext_color">#e5e5e5</color>
+    <color name = "white_10">#19ffffff</color>
+    <color name = "edit_hint">#969696</color>
+
+    <color name = "textColor2">#75ffffff</color>
+    <color name = "gray">#909090</color>
+
+    <color name = "dialogbg">#30353E</color>
+
+    <color name = "cp_0">#30E3CA</color>
+    <color name = "cp_1">#ffcfdf</color>
+    <color name = "cp_4">#a5dee5</color>
 </resources>

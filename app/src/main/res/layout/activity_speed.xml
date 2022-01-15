@@ -3,13 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutMain"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:padding="@dimen/_16sdp"
-    tools:context=".ui.home.MainActivity">
+    tools:context=".ui.speedtest.SpeedActivity">
 
+    <TextView
+        android:id="@+id/tvTypeCon"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_12sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rounder_text_backgrund"
+        android:gravity="center"
+        android:text="---"
+        android:textColor="@color/maintextcolor"
+        android:textSize="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_progresschart"
@@ -68,21 +81,6 @@
             app:layout_constraintTop_toTopOf="@+id/tickProgressBar"
             app:tint="@color/cp_0" />
 
-        <TextView
-            android:id="@+id/tvTypeCon"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_12sdp"
-            android:layout_marginTop="27dp"
-            android:background="@drawable/rounder_text_backgrund"
-            android:gravity="center"
-            android:text="---"
-            android:textColor="@color/maintextcolor"
-            android:textSize="@dimen/_8sdp"
-            app:layout_constraintEnd_toStartOf="@+id/iv_upload"
-            app:layout_constraintStart_toEndOf="@+id/iv_download"
-            app:layout_constraintTop_toTopOf="@+id/tickProgressBar" />
-
-
         <awan.project.a4gswitch.helper.TickProgressBar
             android:id="@+id/tickProgressBar"
             android:layout_width="0dp"
@@ -112,7 +110,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:alpha=".5"
         android:gravity="center"
-        android:text="@string/information"
+        android:text="Tekan cek speed untuk melihat kecepatn internet &amp; ubah jaringan untuk mengganti jaringa"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/ll_download"
@@ -143,6 +141,7 @@
             style="@style/ValueTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="200"
             android:textColor="@color/white" />
 
@@ -230,6 +229,18 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/tv_start"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:gravity="center"
+        android:src="@drawable/ic_play"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent=".5" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -253,7 +264,7 @@
             android:layout_height="match_parent"/>
 
         <Button
-            android:id="@+id/btnswitch4G"
+            android:id="@+id/btnswitch1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ubah Jaringan"
@@ -263,17 +274,5 @@
             />
 
     </LinearLayout>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:adSize="BANNER"
-        app:adUnitId="@string/bannerADsID"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

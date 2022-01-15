@@ -1,4 +1,4 @@
-package awan.project.a4gswitch;
+package awan.project.a4gswitch.ui.switcher;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -7,27 +7,29 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Switcher extends AppCompatActivity {
+import awan.project.a4gswitch.ui.home.MainActivity;
 
+public class Switcher extends AppCompatActivity {
 
     @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        super.onCreate(savedInstanceState);
         try{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 Intent intent = new Intent("android.intent.action.MAIN");
                 intent.setClassName("com.android.phone", "com.android.phone.settings.RadioInfo");
+                intent.setData(Uri.parse("package:awan.project.a4gswitch"));
                 startActivity(intent);
                 finish();
             }else{
-                super.onCreate(savedInstanceState);
+              //  super.onCreate(savedInstanceState);
                 Intent RadioInfo = new Intent("android.intent.action.MAIN");
                 RadioInfo.setClassName("com.android.settings", "com.android.settings.RadioInfo");
+                RadioInfo.setData(Uri.parse("package:awan.project.a4gswitch"));
                 startActivity(RadioInfo);
                 finish();
             }
@@ -42,7 +44,7 @@ public class Switcher extends AppCompatActivity {
                 {
                     dialog.dismiss();
                     Intent Uninstall = new Intent(Intent.ACTION_DELETE);
-                    Uninstall.setData(Uri.parse("package:fr.studio.cracky.switcher4g"));
+                    Uninstall.setData(Uri.parse("package:awan.project.a4gswitch"));
                     startActivity(Uninstall);
                     finish();
                 }
@@ -52,9 +54,8 @@ public class Switcher extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        Intent intent = new Intent(Switcher.this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        this.finish();
-
+        finish();
     }
 }

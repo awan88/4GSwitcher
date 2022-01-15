@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Ganti 4G</string>
 
+    <string name="appID">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="bannerADsID">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="intersitialADsID">ca-app-pub-3940256099942544/6300978111</string>
+
+<!--    <string name="appID">ca-app-pub-2243481278007346~9205327988</string>-->
+<!--    <string name="bannerADsID">ca-app-pub-2243481278007346/9560551207</string>-->
+<!--    <string name="intersitialADsID">ca-app-pub-3940256099942544/6300978111</string>-->
+
+
     <string name="network_test">Tes Jaringan</string>
     <string name="download_file_test">Download File Test</string>
     <string name="facebook_connection_test">Tes Koneksi Facebook</string>
@@ -16,8 +25,7 @@
     <string name="average_bandwidth">Sedang</string>
     <string name="good_bandwidth">Bagus</string>
 
-    <string name="appID">ca-app-pub-2243481278007346~9205327988</string>
-    <string name="banner_ad_unit_id">ca-app-pub-2243481278007346/9560551207</string>
     <string name="bagaimana_cara_untuk_mengunci_jaringan_anda_ke_mode_jaringan_4g_sebelum_anda_mengganti_jaringan_hp_anda_ke_mode_4g_perlu_di_ingat_bahwa_anda_tidak_bisa_menerima_panggilan_dari_contact_anda_dikarenakan_jaringna_anda_hanya_menggunakan_jaringan_4g_saja_tidak_termasuk_jaringan_prl">Bagaimana cara untuk mengunci jaringan anda ke mode jaringan 4g. Sebelum anda mengganti jaringan hp anda ke mode 4g perlu di ingat bahwa anda tidak bisa menerima panggilan dari contact anda dikarenakan jaringna anda hanya menggunakan jaringan 4g saja tidak termasuk jaringan PRL</string>
-
+    <string name = "history">History</string>
+    <string name="information"><![CDATA[Tekan cek speed untuk melihat kecepatan internet & ubah jaringan untuk mengganti jaringan]]></string>
 </resources>
