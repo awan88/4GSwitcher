@@ -2,12 +2,16 @@
     <string name="app_name">Ganti 4G</string>
 
     <string name="appID">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="bannerADsID">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="bannerAdsHome">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="bannerAdsHistorry">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="bannerAdsTutorial">ca-app-pub-3940256099942544/6300978111</string>
     <string name="intersitialADsID">ca-app-pub-3940256099942544/6300978111</string>
 
-<!--    <string name="appID">ca-app-pub-2243481278007346~9205327988</string>-->
-<!--    <string name="bannerADsID">ca-app-pub-2243481278007346/9560551207</string>-->
-<!--    <string name="intersitialADsID">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--        <string name="appID">ca-app-pub-9351724806454329~5230264503</string>-->
+<!--        <string name="bannerAdsHome">ca-app-pub-9351724806454329/8351251860</string>-->
+<!--        <string name="bannerAdsHistorry">ca-app-pub-9351724806454329/1523131393</string>-->
+<!--        <string name="bannerAdsTutorial">ca-app-pub-9351724806454329/4424626900</string>-->
+<!--        <string name="intersitialADsID">ca-app-pub-9351724806454329/7285759814</string>-->
 
 
     <string name="network_test">Tes Jaringan</string>
@@ -26,6 +30,7 @@
     <string name="good_bandwidth">Bagus</string>
 
     <string name="bagaimana_cara_untuk_mengunci_jaringan_anda_ke_mode_jaringan_4g_sebelum_anda_mengganti_jaringan_hp_anda_ke_mode_4g_perlu_di_ingat_bahwa_anda_tidak_bisa_menerima_panggilan_dari_contact_anda_dikarenakan_jaringna_anda_hanya_menggunakan_jaringan_4g_saja_tidak_termasuk_jaringan_prl">Bagaimana cara untuk mengunci jaringan anda ke mode jaringan 4g. Sebelum anda mengganti jaringan hp anda ke mode 4g perlu di ingat bahwa anda tidak bisa menerima panggilan dari contact anda dikarenakan jaringna anda hanya menggunakan jaringan 4g saja tidak termasuk jaringan PRL</string>
-    <string name = "history">History</string>
+    <string name="history">History</string>
     <string name="information"><![CDATA[Tekan cek speed untuk melihat kecepatan internet & ubah jaringan untuk mengganti jaringan]]></string>
+    <string name="date_format">dd/MM/yyyy HH:mm</string>
 </resources>

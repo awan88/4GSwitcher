@@ -23,6 +23,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -64,8 +65,9 @@ import java.util.Objects;
 
 import awan.project.a4gswitch.R;
 import awan.project.a4gswitch.helper.TickProgressBar;
+import awan.project.a4gswitch.ui.history.HistoryActivity;
 import awan.project.a4gswitch.ui.switcher.Switcher;
-import awan.project.a4gswitch.TutorialActivity;
+import awan.project.a4gswitch.ui.tutorial.TutorialActivity;
 import awan.project.a4gswitch.util.ConnectionDetector;
 import awan.project.a4gswitch.util.GetSpeedTestHostsHandler;
 import awan.project.a4gswitch.util.test.HttpDownloadTest;
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     int position = 0;
     int lastPosition = 0;
 
-    String uploadAddr;
+    String uploadAddr, btnClick;
     Boolean isInternetPresent = false;
 
     HashSet<String> tempBlackList;
@@ -153,18 +155,27 @@ public class MainActivity extends AppCompatActivity {
 //            Intent intent = new Intent(this, SpeedActivity.class);
 //            startActivity(intent);
             btnCekSpeed.setEnabled(false);
+            btnCekSpeed.setText("Prosess");
+            btnClick = "cekSpeed";
+            btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
             if (mInterstitialAd != null && clickCoun % 5 == 0) {
                 mInterstitialAd.show(this);
             } else {
+                testSpeed();
                 Log.d("TAG", "The interstitial ad wasn't ready yet.");
             }
-            testSpeed();
             clickCoun++;
         });
 
         btnSwitch4G.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Switcher.class);
-            startActivity(intent);
+            btnClick = "ganti4g";
+            if (mInterstitialAd != null && clickCoun % 5 == 0) {
+                mInterstitialAd.show(this);
+            } else {
+                Intent intent = new Intent(this, Switcher.class);
+                startActivity(intent);
+                Log.d("TAG", "The interstitial ad wasn't ready yet.");
+            }
             clickCoun++;
         });
     }
@@ -317,7 +328,12 @@ public class MainActivity extends AppCompatActivity {
             public void onAdDismissedFullScreenContent() {
                 // Called when fullscreen content is dismissed.
                 Log.d("TAG", "The ad was dismissed.");
-               // testSpeed();
+                if (btnClick == "cekSpeed"){
+                    testSpeed();
+                }else {
+                    Intent intent = new Intent(MainActivity.this, Switcher.class);
+                    startActivity(intent);
+                }
             }
 
             @Override
@@ -456,7 +472,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if (pingTestFinished) {
                             if (pingTest.getAvgRtt () == 0) {
-                                //  LOGE ("TAG", "");
+                                Log.i ("TAG", "pingTest");
                             } else {
                                 if (this == null)
                                     return;
@@ -473,10 +489,10 @@ public class MainActivity extends AppCompatActivity {
                             pingRateList.add (pingTest.getInstantRtt ());
                             try {
                                 this.runOnUiThread (() -> {
-                                    // LOGI ("TAG", "i = " + i);
+                                    Log.i("TAG", "i = " + i);
                                     tickProgressMeasure.setmPUnit ("ms");
                                     tvPing.setText (dec.format (pingTest.getInstantRtt ()) + "");
-                                    //LOGE ("PING", "" + pingTest.getInstantRtt ());
+                                    Log.i("PING", "" + pingTest.getInstantRtt ());
                                     tickProgressMeasure.setProgress ((int) (pingTest.getInstantRtt () * 100));
                                     if (i == 0) {
                                         lcMeasure.clear ();
@@ -514,7 +530,7 @@ public class MainActivity extends AppCompatActivity {
                         if (pingTestFinished) {
                             if (downloadTestFinished) {
                                 if (downloadTest.getFinalDownloadRate () == 0) {
-                                    //  LOGE ("TAG", "");
+                                    Log.i ("TAG", "ping");
                                 } else {
                                     try {
                                         this.runOnUiThread (() -> {
@@ -546,7 +562,7 @@ public class MainActivity extends AppCompatActivity {
                                 position = getPositionByRate (downloadRate);
                                 try {
                                     this.runOnUiThread (() -> {
-                                        //LOGI ("TAG", "j = " + j);
+                                        Log.i("TAG", "j = " + j);
                                         tickProgressMeasure.setmPUnit (sharedPref.getString ("UNIT", "Mbps"));
                                         switch (sharedPref.getString ("UNIT", "Mbps")) {
                                             case "MBps":
@@ -568,7 +584,7 @@ public class MainActivity extends AppCompatActivity {
                                             default:
                                                 break;
                                         }
-                                        // LOGE ("DOWNLOAD", "" + downloadTest.getInstantDownloadRate ());
+                                        Log.i("DOWNLOAD", "" + downloadTest.getInstantDownloadRate ());
                                         if (j == 0) {
                                             ivPBDownload.setAlpha (1.0f);
                                             ivPBUpload.setAlpha (0.5f);
@@ -609,8 +625,8 @@ public class MainActivity extends AppCompatActivity {
                         if (downloadTestFinished) {
                             if (uploadTestFinished) {
                                 if (uploadTest.getFinalUploadRate () == 0) {
-                                    // LOGE ("TAG", "");
-                                    btnCekSpeed.setEnabled(true);
+                                    Log.i("TAG", "dowload");
+                                    //btnCekSpeed.setEnabled(true);
                                 } else {
                                     if (this == null)
                                         return;
@@ -631,7 +647,7 @@ public class MainActivity extends AppCompatActivity {
                                                     tvUpload.setText (String.format ("%.1f", dec.format (1000 * uploadTest.getFinalUploadRate ())));
                                                     break;
                                                 default:
-                                                    //  LOGE ("TAG", "ERROR");
+                                                    Log.i("TAG", "ERROR");
                                                     break;
                                             }
                                         });
@@ -667,8 +683,8 @@ public class MainActivity extends AppCompatActivity {
                                                 //LOGE ("TAG", "ERROR");
                                                 break;
                                         }
-                                        //LOGI ("TAG", "k = " + k);
-                                        //LOGE ("UPLOAD", "" + uploadTest.getInstantUploadRate ());
+                                        Log.i("TAG", "k = " + k);
+                                        Log.i("UPLOAD", "" + uploadTest.getInstantUploadRate ());
                                         if (k == 0) {
                                             ivPBDownload.setAlpha (1.0f);
                                             ivPBUpload.setAlpha (1.0f);
@@ -737,20 +753,24 @@ public class MainActivity extends AppCompatActivity {
                     }
                     try {
                         this.runOnUiThread (() -> {
+                            btnCekSpeed.setEnabled(true);
+                            btnCekSpeed.setText("Cek Speed Lagi");
+                            btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
+                            Toast.makeText(this, "Cek speed selesai", Toast.LENGTH_SHORT).show();
                             // tvBegin.setImageResource (R.drawable.ic_play);
-                            //LOGE ("TAG", "test1");
+                            Log.i("TAG", "test1");
                             SharedPreferences sharedPrefHistory = this.getSharedPreferences ("historydata", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPrefHistory.edit ();
                             String _data = sharedPrefHistory.getString ("DATA", "");
                             if (!_data.equals ("")) {
-                                // LOGE ("TAG", "1");
+                                 Log.i("TAG", "1");
                                 JSONObject jsondata = new JSONObject ();
                                 try {
                                     jsondata.put ("date", String.valueOf (System.currentTimeMillis ()));
                                     jsondata.put ("ping", tvPing.getText ());
                                     jsondata.put ("download", tvDownload.getText ());
                                     jsondata.put ("upload", tvUpload.getText ());
-                                    //LOGE ("TAG", _data);
+                                    Log.i ("TAG", _data);
                                     JSONObject js = new JSONObject (_data);
                                     JSONArray array = js.getJSONArray (getString (R.string.history));
                                     array.put (jsondata);
@@ -763,7 +783,7 @@ public class MainActivity extends AppCompatActivity {
                                     e.printStackTrace ();
                                 }
                             } else {
-                                //  LOGE ("TAG", "2");
+                                Log.i ("TAG", "2");
                                 JSONObject jsondata = new JSONObject ();
                                 try {
                                     jsondata.put ("date", String.valueOf (System.currentTimeMillis ()));
@@ -784,13 +804,18 @@ public class MainActivity extends AppCompatActivity {
                         });
                     } catch (Exception e) {
                         e.printStackTrace ();
+                        btnCekSpeed.setEnabled(true);
+                        btnCekSpeed.setText("Cek Speed Lagi");
+                        btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
                     }
 
                 }
             } else {
                 btnCekSpeed.setEnabled(true);
+                btnCekSpeed.setText("Cek Speed Lagi");
+                btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
                 //  tvBegin.setImageResource (R.drawable.ic_play);
-                // LOGE ("TAG", "test2");
+                Log.i("TAG", "test22");
             }
         }).start ();
 
@@ -889,23 +914,22 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.one:
+            case R.id.tutorial:
                 Intent intent = new Intent(this, TutorialActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
 
+            case R.id.history:
+                Intent history = new Intent(this, HistoryActivity.class);
+                startActivity(history);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                return true;
 
-            case R.id.two:
+            case R.id.keluar:
                 finish();
                 return true;
 
-//            case R.id.tree:
-//                Intent intent = new Intent(this, TutorialActivity.class);
-//                startActivity(intent);
-//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                return true;
-//                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -924,7 +948,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        //cekForUpdate();
+        cekForUpdate();
         super.onStart();
     }
 

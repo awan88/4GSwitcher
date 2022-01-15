@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@android:color/transparent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.SplashScreen">
+    tools:context=".ui.SplashScreen">
 
 
     <ImageView
@@ -13,7 +13,7 @@
         android:id="@+id/imageview"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_200sdp"
-        android:src="@drawable/logo3"/>
+        android:src="@drawable/logotransparan"/>
 
 
 

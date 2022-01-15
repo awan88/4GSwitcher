@@ -244,6 +244,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cek Speed"
+            android:textColor="@color/white"
             android:backgroundTint="@color/ratedialog"
             android:textAllCaps="false"
             android:layout_weight="1" />
@@ -257,6 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ubah Jaringan"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             android:layout_weight="1"
             android:backgroundTint="@color/ratedialog"
@@ -271,7 +273,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="@string/bannerADsID"
+        app:adUnitId="@string/bannerAdsHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
