@@ -12,8 +12,8 @@ android {
         applicationId "awan.project.a4gswitch"
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 8
-        versionName "1.1.1"
+        versionCode 9
+        versionName "1.1.2"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "${applicationId}-v${versionName}(${versionCode})"
