@@ -1,15 +1,14 @@
 <resources>
     <string name="app_name">Ganti 4G</string>
 
-<!--    Test Ads-->
-    <string name="appID">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="appID">ca-app-pub-9351724806454329~5230264503</string>
     <string name="unitBannerAds">ca-app-pub-9351724806454329/5717305500</string>
     <string name="unitIntersitialAds">ca-app-pub-9351724806454329/4341161573</string>
 
-<!--    My Ads-->
-<!--        <string name="appID">ca-app-pub-9351724806454329~5230264503</string>-->
-<!--        <string name="unitBannerAds">ca-app-pub-9351724806454329/8351251860</string>-->
-<!--        <string name="unitIntersitialAds">ca-app-pub-9351724806454329/7285759814</string>-->
+<!--    Test Ads-->
+<!--        <string name="appID">52302645</string>-->
+<!--        <string name="unitBannerAds">caa</string>-->
+<!--        <string name="unitIntersitialAds">9351759814</string>-->
 
 
     <string name="network_test">Tes Jaringan</string>
