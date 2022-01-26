@@ -19,14 +19,13 @@ public class Switcher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try{
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 Intent intent = new Intent("android.intent.action.MAIN");
                 intent.setClassName("com.android.phone", "com.android.phone.settings.RadioInfo");
                 intent.setData(Uri.parse("package:awan.project.a4gswitch"));
                 startActivity(intent);
                 finish();
             }else{
-              //  super.onCreate(savedInstanceState);
                 Intent RadioInfo = new Intent("android.intent.action.MAIN");
                 RadioInfo.setClassName("com.android.settings", "com.android.settings.RadioInfo");
                 RadioInfo.setData(Uri.parse("package:awan.project.a4gswitch"));

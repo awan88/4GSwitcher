@@ -152,31 +152,32 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnCekSpeed.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, SpeedActivity.class);
-//            startActivity(intent);
             btnCekSpeed.setEnabled(false);
             btnCekSpeed.setText("Prosess");
             btnClick = "cekSpeed";
-            btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
-            if (mInterstitialAd != null && clickCoun % 5 == 0) {
+            int hasilClick = clickCoun % 5;
+            if (mInterstitialAd != null && hasilClick == 0) {
                 mInterstitialAd.show(this);
             } else {
                 testSpeed();
                 Log.d("TAG", "The interstitial ad wasn't ready yet.");
             }
-            clickCoun++;
+            clickCoun ++;
         });
 
         btnSwitch4G.setOnClickListener(v -> {
             btnClick = "ganti4g";
-            if (mInterstitialAd != null && clickCoun % 5 == 0) {
+            int hasilClick = clickCoun % 5;
+            Log.i("cekclickCoun", String.valueOf(hasilClick));
+            Log.i("cekclickCoun", String.valueOf(clickCoun));
+            if (mInterstitialAd != null && hasilClick == 0) {
                 mInterstitialAd.show(this);
             } else {
                 Intent intent = new Intent(this, Switcher.class);
                 startActivity(intent);
                 Log.d("TAG", "The interstitial ad wasn't ready yet.");
             }
-            clickCoun++;
+            clickCoun ++;
         });
     }
 
@@ -291,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadFullScreenAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        String adUnitId = this.getResources().getString(R.string.intersitialADsID);
+        String adUnitId = this.getResources().getString(R.string.unitIntersitialAds);
         InterstitialAd.load(this, adUnitId, adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
@@ -626,7 +627,6 @@ public class MainActivity extends AppCompatActivity {
                             if (uploadTestFinished) {
                                 if (uploadTest.getFinalUploadRate () == 0) {
                                     Log.i("TAG", "dowload");
-                                    //btnCekSpeed.setEnabled(true);
                                 } else {
                                     if (this == null)
                                         return;
@@ -755,7 +755,7 @@ public class MainActivity extends AppCompatActivity {
                         this.runOnUiThread (() -> {
                             btnCekSpeed.setEnabled(true);
                             btnCekSpeed.setText("Cek Speed Lagi");
-                            btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
+                            //btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
                             Toast.makeText(this, "Cek speed selesai", Toast.LENGTH_SHORT).show();
                             // tvBegin.setImageResource (R.drawable.ic_play);
                             Log.i("TAG", "test1");
@@ -806,14 +806,14 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace ();
                         btnCekSpeed.setEnabled(true);
                         btnCekSpeed.setText("Cek Speed Lagi");
-                        btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
+                       // btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
                     }
 
                 }
             } else {
                 btnCekSpeed.setEnabled(true);
                 btnCekSpeed.setText("Cek Speed Lagi");
-                btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
+               // btnCekSpeed.setBackgroundColor(this.getResources().getColor(R.color.ratedialog));
                 //  tvBegin.setImageResource (R.drawable.ic_play);
                 Log.i("TAG", "test22");
             }

@@ -242,12 +242,13 @@
         <Button
             android:id="@+id/btntestDownload"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:text="Cek Speed"
             android:textColor="@color/white"
-            android:backgroundTint="@color/ratedialog"
             android:textAllCaps="false"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:backgroundTint="@color/ratedialog"
+            tools:ignore="HardcodedText,UnusedAttribute" />
 
         <Space
             android:layout_width="@dimen/_20sdp"
@@ -256,7 +257,7 @@
         <Button
             android:id="@+id/btnswitch4G"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:text="Ubah Jaringan"
             android:textColor="@color/white"
             android:textAllCaps="false"
@@ -273,7 +274,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="@string/bannerAdsHome"
+        app:adUnitId="@string/unitIntersitialAds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
