@@ -144,12 +144,9 @@ public class MainActivity extends AppCompatActivity {
         btnCekSpeed = findViewById(R.id.btntestDownload);
         btnSwitch4G = findViewById(R.id.btnswitch4G);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                loadFullScreenAd();
-            }
-        });
+        MobileAds.initialize(this, initializationStatus ->
+                loadFullScreenAd()
+        );
 
         btnCekSpeed.setOnClickListener(v -> {
             btnCekSpeed.setEnabled(false);

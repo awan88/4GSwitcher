@@ -37,7 +37,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/textView">
 
-
                 <TextView
                     android:id="@+id/tvTitle1"
                     android:layout_width="wrap_content"
@@ -98,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/t2"
+                    android:src="@drawable/t1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tvKet2"
                     app:layout_constraintTop_toBottomOf="@+id/tvKet2" />
@@ -142,7 +141,7 @@
                     android:layout_height="400dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/t3"
+                    android:src="@drawable/t2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tvKet3"
                     app:layout_constraintTop_toBottomOf="@+id/tvKet3" />
@@ -199,7 +198,7 @@
                     android:layout_height="400dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/t4"
+                    android:src="@drawable/t3"
                     android:layout_marginBottom="@dimen/_60sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -216,7 +215,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="@string/unitIntersitialAds"
+        app:adUnitId="@string/unitBannerAds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
