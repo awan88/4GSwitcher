@@ -13,7 +13,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +38,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -90,8 +94,9 @@ public class MainActivity extends AppCompatActivity {
     ConnectivityManager cm;
     ConnectionDetector cd;
 
-    private AdView mAdView;
     private InterstitialAd mInterstitialAd;
+    private FrameLayout adContainerView;
+    private AdView adView;
 
     TextView tvTypeCon, tvDownloadU, tvUploadU, tvBlink, tvPing, tvDownload, tvDownloadL, tvUpload, tvUploadL, tvPingL;
     ImageView ivPBDownload, ivPBUpload;
@@ -126,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mAdView = findViewById(R.id.adView);
+        adContainerView = findViewById(R.id.ad_view_main);
         tvDownloadU = findViewById(R.id.tv_download_unit);
         tvUploadU = findViewById(R.id.tv_upload_unit);
         tvBlink = findViewById(R.id.tv_information);
@@ -152,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             btnCekSpeed.setEnabled(false);
             btnCekSpeed.setText("Prosess");
             btnClick = "cekSpeed";
-            int hasilClick = clickCoun % 5;
+            int hasilClick = clickCoun % 2;
             if (mInterstitialAd != null && hasilClick == 0) {
                 mInterstitialAd.show(this);
             } else {
@@ -161,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
             }
             clickCoun ++;
         });
-
         btnSwitch4G.setOnClickListener(v -> {
             btnClick = "ganti4g";
             int hasilClick = clickCoun % 5;
@@ -177,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             clickCoun ++;
         });
     }
-
+    
     private void initListenner() {
         tvDownloadU.setText(sharedPref.getString("UNIT", "Mbps"));
         tvUploadU.setText(sharedPref.getString("UNIT", "Mbps"));
@@ -288,8 +292,9 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("MissingPermission")
     private void loadFullScreenAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        String adUnitId = this.getResources().getString(R.string.unitIntersitialAds);
+        adContainerView.post(() -> loadBanner(adRequest));
+  
+        String adUnitId = this.getResources().getString(R.string.unitIDIntersitialAds);
         InterstitialAd.load(this, adUnitId, adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
@@ -309,6 +314,37 @@ public class MainActivity extends AppCompatActivity {
                         loadAdsFailed();
                     }
                 });
+    }
+
+    private void loadBanner(AdRequest adRequest) {
+        adView = new AdView(this);
+        adView.setAdUnitId(getString(R.string.unitIDBannerAds));
+        adContainerView.removeAllViews();
+        adContainerView.addView(adView);
+
+        AdSize adSize = getAdSize();
+        adView.setAdSize(adSize);
+       
+        adView.loadAd(adRequest);
+    }
+
+    private AdSize getAdSize() {
+        // Determine the screen width (less decorations) to use for the ad width.
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float density = outMetrics.density;
+
+        float adWidthPixels = adContainerView.getWidth();
+
+        // If the ad hasn't been laid out, default to the full screen width.
+        if (adWidthPixels == 0) {
+            adWidthPixels = outMetrics.widthPixels;
+        }
+
+        int adWidth = (int) (adWidthPixels / density);
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
     }
 
     private void loadAdsFailed() {
@@ -935,6 +971,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume () {
         super.onResume ();
+        if (adView != null) {
+            adView.resume();
+        }
         getSpeedTestHostsHandler = new GetSpeedTestHostsHandler ();
         getSpeedTestHostsHandler.start ();
         if (tvDownloadU != null)
@@ -955,5 +994,22 @@ public class MainActivity extends AppCompatActivity {
             mAppUpdateManager.unregisterListener(installStateUpdatedListener);
         }
         super.onStop();
+    }
+
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }

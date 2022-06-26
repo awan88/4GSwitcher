@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">Ganti 4G</string>
 
-    <string name="appID">ca-app-pub-9351724806454329~5230264503</string>
-    <string name="unitBannerAds">ca-app-pub-9351724806454329/5717305500</string>
-    <string name="unitIntersitialAds">ca-app-pub-9351724806454329/4341161573</string>
+<!--    <string name="appID">ca-app-pub-9351724806454329~5230264503</string>-->
+<!--    <string name="unitIDBannerAds">ca-app-pub-9351724806454329/5717305500</string>-->
+<!--    <string name="unitIDIntersitialAds">ca-app-pub-9351724806454329/4341161573</string>-->
 
-<!--    Test Ads-->
-<!--        <string name="appID">52302645</string>-->
-<!--        <string name="unitBannerAds">caa</string>-->
-<!--        <string name="unitIntersitialAds">9351759814</string>-->
+    <!--    TestingAds-->
+        <string name="appID">ca-app-pub-3940256099942544~3347511713</string>
+        <string name="splashScreenAds">ca-app-pub-3940256099942544/3419835294</string>
+        <string name="unitIDBannerAds">ca-app-pub-3940256099942544/6300978111</string>
+        <string name="unitIDIntersitialAds">ca-app-pub-3940256099942544/1033173712</string>
 
 
     <string name="network_test">Tes Jaringan</string>
