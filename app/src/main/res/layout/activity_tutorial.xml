@@ -25,7 +25,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="10dp"
-                android:text="@string/bagaimana_cara_untuk_mengunci_jaringan_anda_ke_mode_jaringan_4g_sebelum_anda_mengganti_jaringan_hp_anda_ke_mode_4g_perlu_di_ingat_bahwa_anda_tidak_bisa_menerima_panggilan_dari_contact_anda_dikarenakan_jaringna_anda_hanya_menggunakan_jaringan_4g_saja_tidak_termasuk_jaringan_prl"
+                android:text="@string/penjelasan"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
